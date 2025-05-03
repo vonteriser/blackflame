@@ -38,7 +38,9 @@
       perspective: 1000px;
     }
     .hero img {
-      width: 200px;
+      width: 50%;
+      max-width: 200px;
+      min-width: 120px;
       border-radius: 50%;
       margin-bottom: 2rem;
       transform: rotateY(10deg);
@@ -51,6 +53,9 @@
       font-size: 1.2rem;
       max-width: 600px;
       margin-bottom: 2rem;
+    }
+    .hero h2, .hero p {
+    padding: 0 1rem;
     }
     .cta {
       margin-top: 2rem;
@@ -76,6 +81,22 @@
       text-align: center;
       padding: 10rem;
       font-size: 2rem;
+    }
+    .parallax h1 {
+      font-size: 3rem;
+      word-break: break-word;
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+  @media (max-width: 768px) {
+      .parallax {
+        padding: 5rem 1rem;
+      }
+      .parallax h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+      }
     }
     section {
       padding: 4rem 2rem;
