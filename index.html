@@ -5,26 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Black Flame</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
-    body { font-family: 'Poppins', sans-serif; }
-    .sticky-nav {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      z-index: 50;
-      background: rgba(0, 0, 0, 0.9);
-      backdrop-filter: blur(10px);
+    html {
+      scroll-behavior: smooth;
     }
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  body { font-family: 'Orbitron', sans-serif; }
+    body {
+      font-family: 'Orbitron', sans-serif;
+    }
   </style>
 </head>
 <body class="bg-black text-white overflow-x-hidden">
 
+<!-- Navigation Bar -->
+<nav class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 flex gap-6 bg-purple-700/90 p-3 rounded-full shadow-2xl backdrop-blur-md">
+  <a href="#hero" class="w-12 h-12 flex items-center justify-center bg-white text-purple-700 rounded-full hover:bg-gray-200 active:scale-95 transition">
+    🏠
+  </a>
+  <a href="#videos" class="w-12 h-12 flex items-center justify-center bg-white text-purple-700 rounded-full hover:bg-gray-200 active:scale-95 transition">
+    🎥
+  </a>
+  <a href="#social" class="w-12 h-12 flex items-center justify-center bg-white text-purple-700 rounded-full hover:bg-gray-200 active:scale-95 transition">
+    💬
+  </a>
+</nav>
+
 <!-- Hero Section -->
-<section class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-gray-900 to-black px-6">
+<section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-gray-900 to-black px-6">
   <div data-aos="fade-up" class="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden shadow-xl border-4 border-gray-800 mb-6">
     <img src="https://yt3.googleusercontent.com/-8_mupgwn0UUAk3SoOOzloeSJJnH8oI561zjMuQuaDnTK2WzANDUSZ2X3t-TkIJKMm70tnuWKg=s160-c-k-c0x00ffffff-no-rj" alt="Profile" class="w-full h-full object-cover"/>
   </div>
@@ -34,27 +42,29 @@
 </section>
 
 <!-- Videos Section -->
-<section id="videos" class="py-20 bg-black px-6">
+<section id="videos" class="py-20 bg-black px-6 space-y-16">
   <div class="max-w-6xl mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-6">Latest videos</h2>
-    <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-lg mx-auto max-w-4xl" data-aos="zoom-in">
-      <iframe class = "w-full" height = "315" src="https://www.youtube.com/embed/hS7J3n6u3Xg?si=ghKDCuQ9taINLtNB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-       <iframe class = "w-full" height="315" src="https://www.youtube.com/embed/UYWPCTzTmLI?si=F6JHW6V1AEjNppwf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <h2 class="text-4xl font-bold mb-6">Latest Videos</h2>
+    <div class="grid gap-10 md:grid-cols-2">
+      <div class="aspect-video rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in">
+        <iframe class="w-full h-full" src="https://www.youtube.com/embed/hS7J3n6u3Xg?si=ghKDCuQ9taINLtNB" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="aspect-video rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in" data-aos-delay="100">
+        <iframe class="w-full h-full" src="https://www.youtube.com/embed/UYWPCTzTmLI?si=F6JHW6V1AEjNppwf" frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
   </div>
-</section>
 
-<section id="videos" class="py-20 bg-black px-6">
   <div class="max-w-6xl mx-auto text-center">
     <h2 class="text-4xl font-bold mb-6">Latest Stream</h2>
-    <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-lg mx-auto max-w-4xl" data-aos="zoom-in">
-      <iframe class = "w-full" height = "315" src="https://www.youtube.com/embed/nhF6XW336nI?si=71mwilLtxzXSioMy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="aspect-video rounded-xl overflow-hidden shadow-lg mx-auto max-w-4xl" data-aos="zoom-in">
+      <iframe class="w-full h-full" src="https://www.youtube.com/embed/nhF6XW336nI?si=71mwilLtxzXSioMy" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 </section>
 
 <!-- Social Section -->
-<section class="py-20 bg-gradient-to-r from-purple-700 via-pink-500 to-red-500 text-white text-center px-6">
+<section id="social" class="py-20 bg-gradient-to-r from-purple-700 via-pink-500 to-red-500 text-white text-center px-6">
   <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Join the Flame 🔥</h2>
   <div class="flex justify-center gap-8 text-lg font-semibold" data-aos="fade-up" data-aos-delay="100">
     <a href="https://discord.gg/acfxFfz6" target="_blank" class="hover:underline">Discord</a>
@@ -67,19 +77,6 @@
 <footer class="bg-black text-center text-gray-500 py-10">
   <p>&copy; 2025 Black Flame. Built for the next-gen creators.</p>
 </footer>
-
-<!-- Floating Circular Side Navigation -->
-<nav class="fixed bottom-10 left-6 z-50 flex flex-col gap-4 p-4 bg-purple-700/80 rounded-3xl shadow-2xl backdrop-blur-md">
-  <a href="#top" class="w-12 h-12 flex items-center justify-center bg-white text-purple-700 rounded-full shadow-md hover:scale-110 transition">
-    <span class="text-sm font-bold">🏠</span>
-  </a>
-  <a href="#videos" class="w-12 h-12 flex items-center justify-center bg-white text-purple-700 rounded-full shadow-md hover:scale-110 transition">
-    <span class="text-sm font-bold">🎥</span>
-  </a>
-  <a href="#social" class="w-12 h-12 flex items-center justify-center bg-white text-purple-700 rounded-full shadow-md hover:scale-110 transition">
-    <span class="text-sm font-bold">💬</span>
-  </a>
-</nav>
 
 <!-- AOS Script -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
