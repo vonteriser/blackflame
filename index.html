@@ -13,10 +13,38 @@
     }
     body {
       font-family: 'Orbitron', sans-serif;
+      cursor: none;
     }
-  </style>
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.cursor-ring {
+  width: 30px;
+  height: 30px;
+  border: 2px solid white;
+  transition: width 0.2s, height 0.2s, border-color 0.2s;
+}
+  
+
+</style>
 </head>
 <body class="bg-black text-white overflow-x-hidden">
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
 
 <!-- Navigation Bar -->
 <nav class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 flex gap-6 bg-purple-700/90 p-3 rounded-full shadow-2xl backdrop-blur-md">
@@ -75,12 +103,55 @@
 
 <!-- Footer -->
 <footer class="bg-black text-center text-gray-500 py-10">
-  <p>&copy; 2025 Black Flame. Built for the next-gen creators.</p>
+  <p>&copy; Vonherigy</p>
+  
 </footer>
 
 <!-- AOS Script -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init();</script>
+<script>
+  const dot = document.querySelector('.cursor-dot');
+  const ring = document.querySelector('.cursor-ring');
+
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    // Dot follows instantly
+    dot.style.left = `${mouseX}px`;
+    dot.style.top = `${mouseY}px`;
+  });
+
+  // Animate ring with delay
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.2; // Fast easing
+    ringY += (mouseY - ringY) * 0.2;
+
+    ring.style.left = `${ringX}px`;
+    ring.style.top = `${ringY}px`;
+
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Hover effect on interactive elements
+  const links = document.querySelectorAll('a, button');
+
+  links.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.style.width = '50px';
+      ring.style.height = '50px';
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.style.width = '30px';
+      ring.style.height = '30px';
+    });
+  });
+</script>
 
 </body>
 </html>
